@@ -62,5 +62,5 @@
  */
 - (CGFloat)pageView:(WKPageView *)pageView widthForMenuItemAtIndex:(NSInteger)index;
 ```
-## final
-	有什么问题欢迎联系我，有什么错误或者值得改进的地方希望各位前辈多多指教；:)
+## Final
+	有什么问题欢迎联系我，有什么错误或者值得改进的地方希望各位前辈多多指教:)

@@ -14,6 +14,11 @@
 		4D0FDB7D1B1A029D00F02AE3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D0FDB7C1B1A029D00F02AE3 /* Images.xcassets */; };
 		4D0FDB801B1A029D00F02AE3 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D0FDB7E1B1A029D00F02AE3 /* LaunchScreen.xib */; };
 		4D0FDB8C1B1A029D00F02AE3 /* YKPageViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D0FDB8B1B1A029D00F02AE3 /* YKPageViewTests.m */; };
+		4D0FDB9E1B1A02BD00F02AE3 /* WKMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D0FDB971B1A02BD00F02AE3 /* WKMenuItem.m */; };
+		4D0FDB9F1B1A02BD00F02AE3 /* WKMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D0FDB991B1A02BD00F02AE3 /* WKMenuView.m */; };
+		4D0FDBA01B1A02BD00F02AE3 /* WKPageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D0FDB9B1B1A02BD00F02AE3 /* WKPageCell.m */; };
+		4D0FDBA11B1A02BD00F02AE3 /* WKPageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D0FDB9D1B1A02BD00F02AE3 /* WKPageView.m */; };
+		4D0FDBA51B1A02E300F02AE3 /* UIColor+Random.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D0FDBA41B1A02E300F02AE3 /* UIColor+Random.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +45,16 @@
 		4D0FDB851B1A029D00F02AE3 /* YKPageViewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YKPageViewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D0FDB8A1B1A029D00F02AE3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4D0FDB8B1B1A029D00F02AE3 /* YKPageViewTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YKPageViewTests.m; sourceTree = "<group>"; };
+		4D0FDB961B1A02BD00F02AE3 /* WKMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKMenuItem.h; sourceTree = "<group>"; };
+		4D0FDB971B1A02BD00F02AE3 /* WKMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKMenuItem.m; sourceTree = "<group>"; };
+		4D0FDB981B1A02BD00F02AE3 /* WKMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKMenuView.h; sourceTree = "<group>"; };
+		4D0FDB991B1A02BD00F02AE3 /* WKMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKMenuView.m; sourceTree = "<group>"; };
+		4D0FDB9A1B1A02BD00F02AE3 /* WKPageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKPageCell.h; sourceTree = "<group>"; };
+		4D0FDB9B1B1A02BD00F02AE3 /* WKPageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKPageCell.m; sourceTree = "<group>"; };
+		4D0FDB9C1B1A02BD00F02AE3 /* WKPageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKPageView.h; sourceTree = "<group>"; };
+		4D0FDB9D1B1A02BD00F02AE3 /* WKPageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKPageView.m; sourceTree = "<group>"; };
+		4D0FDBA31B1A02E300F02AE3 /* UIColor+Random.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Random.h"; sourceTree = "<group>"; };
+		4D0FDBA41B1A02E300F02AE3 /* UIColor+Random.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Random.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +96,8 @@
 		4D0FDB6E1B1A029D00F02AE3 /* YKPageView */ = {
 			isa = PBXGroup;
 			children = (
+				4D0FDBA21B1A02D300F02AE3 /* Category */,
+				4D0FDB951B1A02BD00F02AE3 /* MenuView */,
 				4D0FDB731B1A029D00F02AE3 /* AppDelegate.h */,
 				4D0FDB741B1A029D00F02AE3 /* AppDelegate.m */,
 				4D0FDB761B1A029D00F02AE3 /* ViewController.h */,
@@ -117,6 +134,30 @@
 				4D0FDB8A1B1A029D00F02AE3 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		4D0FDB951B1A02BD00F02AE3 /* MenuView */ = {
+			isa = PBXGroup;
+			children = (
+				4D0FDB961B1A02BD00F02AE3 /* WKMenuItem.h */,
+				4D0FDB971B1A02BD00F02AE3 /* WKMenuItem.m */,
+				4D0FDB981B1A02BD00F02AE3 /* WKMenuView.h */,
+				4D0FDB991B1A02BD00F02AE3 /* WKMenuView.m */,
+				4D0FDB9A1B1A02BD00F02AE3 /* WKPageCell.h */,
+				4D0FDB9B1B1A02BD00F02AE3 /* WKPageCell.m */,
+				4D0FDB9C1B1A02BD00F02AE3 /* WKPageView.h */,
+				4D0FDB9D1B1A02BD00F02AE3 /* WKPageView.m */,
+			);
+			path = MenuView;
+			sourceTree = "<group>";
+		};
+		4D0FDBA21B1A02D300F02AE3 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				4D0FDBA31B1A02E300F02AE3 /* UIColor+Random.h */,
+				4D0FDBA41B1A02E300F02AE3 /* UIColor+Random.m */,
+			);
+			name = Category;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -220,7 +261,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				4D0FDB781B1A029D00F02AE3 /* ViewController.m in Sources */,
+				4D0FDB9E1B1A02BD00F02AE3 /* WKMenuItem.m in Sources */,
+				4D0FDBA01B1A02BD00F02AE3 /* WKPageCell.m in Sources */,
 				4D0FDB751B1A029D00F02AE3 /* AppDelegate.m in Sources */,
+				4D0FDBA51B1A02E300F02AE3 /* UIColor+Random.m in Sources */,
+				4D0FDB9F1B1A02BD00F02AE3 /* WKMenuView.m in Sources */,
+				4D0FDBA11B1A02BD00F02AE3 /* WKPageView.m in Sources */,
 				4D0FDB721B1A029D00F02AE3 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -348,6 +394,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = YKPageView/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -358,6 +405,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = YKPageView/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

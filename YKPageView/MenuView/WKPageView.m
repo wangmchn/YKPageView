@@ -99,7 +99,7 @@
     scrollView.showsVerticalScrollIndicator = NO;
     scrollView.pagingEnabled = YES;
     scrollView.delegate = self;
-    NSUInteger numOfCells = [self.dataSource numbersOfPagesInPageView:self];
+    NSUInteger numOfCells = [[self.dataSource menuItemsForMenuViewInPageView:self] count];
     for (int i = 0; i < numOfCells; i++) {
         CGFloat x = i * width;
         CGFloat y = 0;

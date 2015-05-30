@@ -23,14 +23,14 @@ typedef enum{
  */
 @protocol WKPageViewDataSource <NSObject>
 @required
-/**
- *  数据源方法，获取pageView的cell个数
- *
- *  @param pageView 翻页视图
- *
- *  @return pageView的cell个数
- */
-- (NSUInteger)numbersOfPagesInPageView:(WKPageView *)pageView;
+///**
+// *  数据源方法，获取pageView的cell个数
+// *
+// *  @param pageView 翻页视图
+// *
+// *  @return pageView的cell个数
+// */
+//- (NSUInteger)numbersOfPagesInPageView:(WKPageView *)pageView;
 /**
  *  数据源方法，获取当前index的cell
  *
@@ -88,7 +88,14 @@ typedef enum{
  *  @return 标题字体大小
  */
 - (CGFloat)titleSizeOfMenuItemInPageView:(WKPageView *)pageView withState:(WKMenuItemTitleSizeState)state;
-
+/**
+ *  设置菜单栏内部item的宽度，默认宽度为60
+ *
+ *  @param pageView 当前翻页视图
+ *  @param index    WKMenuItem的序号，可根据序号定制
+ *
+ *  @return item的宽度
+ */
 - (CGFloat)pageView:(WKPageView *)pageView widthForMenuItemAtIndex:(NSInteger)index;
 @end
 

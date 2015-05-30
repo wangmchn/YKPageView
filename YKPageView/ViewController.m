@@ -36,9 +36,6 @@
     self.pageView = pageView;
 }
 #pragma mark - page view datasource
-- (NSUInteger)numbersOfPagesInPageView:(WKPageView *)pageView{
-    return self.items.count;
-}
 // Menu的标题用NSArray封装，内为NSString
 - (NSArray *)menuItemsForMenuViewInPageView:(WKPageView *)pageView{
     return self.items;

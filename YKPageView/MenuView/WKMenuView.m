@@ -95,7 +95,7 @@
     self.scrollView = scrollView;
 }
 - (void)addItems{
-    CGFloat contentWidth = 0;
+    CGFloat contentWidth = kMargin;
     for (int i = 0; i < self.items.count; i++) {
         CGFloat itemW = kItemWidth;
         if ([self.delegate respondsToSelector:@selector(menuView:widthForItemAtIndex:)]) {
@@ -126,6 +126,7 @@
         }
         [self.scrollView addSubview:item];
     }
+    contentWidth += kMargin;
     self.scrollView.contentSize = CGSizeMake(contentWidth, self.frame.size.height);
 }
 - (void)addMask{

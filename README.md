@@ -3,8 +3,15 @@
 ## Description
     之前面试被问到网易新闻首页是怎么实现的，太紧张没答好，回来后仔细想了想，并动手实现了一下
     菜单栏标题的字体和颜色都是可动画的，颜色要动画的话，颜色必须是有RGB分量的（比如由RGBA创建）
-    效果图如下，背景，字体颜色及大小都是可定制的：<br>
+效果图如下，背景，字体颜色及大小都是可定制的：<br>
 ![Example](https://github.com/wangmchn/YKPageView/blob/master/Example.gif)
+
+你当然也可以将它这么放到你的项目中：
+![CosChat](https://github.com/wangmchn/YKPageView/blob/master/CosChat.gif)
+
+也可以向网易新闻这样：
+![EastNet](https://github.com/wangmchn/YKPageView/blob/master/eastnet.gif)
+
 ## How to use
 * import `WKPageView`,使用方法类似`UITableView`
 * 实现相应的`delegate`和`dataSource`方法，具体如下:

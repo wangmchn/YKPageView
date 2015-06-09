@@ -1,6 +1,7 @@
 # YKPageView
 
 ## Description
+![Example](https://github.com/wangmchn/YKPageView/blob/master/Example.gif)
     之前面试被问到网易新闻首页是怎么实现的，太紧张没答好，回来后仔细想了想，并动手实现了一下
     菜单栏标题的字体和颜色都是可动画的，颜色要动画的话，颜色必须是有RGB分量的（比如由RGBA创建）
 ## How to use

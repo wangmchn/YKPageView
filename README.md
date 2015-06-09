@@ -6,10 +6,10 @@
 效果图如下，背景，字体颜色及大小都是可定制的：<br>
 ![Example](https://github.com/wangmchn/YKPageView/blob/master/Example.gif)
 
-你当然也可以将它这么放到你的项目中：
+你当然也可以将它这么放到你的项目中：<br>
 ![CosChat](https://github.com/wangmchn/YKPageView/blob/master/CosChat.gif)
 
-也可以向网易新闻这样：
+也可以向网易新闻这样：<br>
 ![EastNet](https://github.com/wangmchn/YKPageView/blob/master/eastnet.gif)
 
 ## How to use

@@ -4,9 +4,8 @@
 
     之前面试被问到网易新闻首页是怎么实现的，太紧张没答好，回来后仔细想了想，并动手实现了一下
     菜单栏标题的字体和颜色都是可动画的，颜色要动画的话，颜色必须是有RGB分量的（比如由RGBA创建）
-    介于这个版本不好用，于是新做了一个由控制器作为Cell的版本，可以更加方便的实现功能，
-### 控制器版请戳：
-![WMPageController](https://github.com/wangmchn/WMPageController)
+这个版本不好用，于是新做了一个由控制器作为Cell的版本，可以更加方便的实现功能，控制器版请戳：<br>
+https://github.com/wangmchn/WMPageController
     
 
 ## How to use

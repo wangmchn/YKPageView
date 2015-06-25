@@ -84,7 +84,9 @@
     }
     WKMenuView *menuView = [[WKMenuView alloc] initWithFrame:frame buttonItems:items backgroundColor:color norSize:norSize selSize:selSize norColor:norColor selColor:selColor];
     menuView.delegate = self;
-    
+    if (self.menuViewStyle == WKMenuViewStyleLine) {
+        menuView.style = WKMenuViewStyleLine;
+    }
     [self addSubview:menuView];
     self.menuView = menuView;
 }
@@ -175,6 +177,12 @@
     }
 }
 #pragma mark - Public Methods
+- (void)setSelectIndex:(int)selectIndex{
+    _selectIndex = selectIndex;
+    if (self.menuView) {
+        [self.menuView selectItemAtIndex:selectIndex];
+    }
+}
 - (void)setToAnimate:(BOOL)toAnimate{
     _toAnimate = toAnimate;
     setted = YES;
@@ -183,6 +191,9 @@
     [self clearAllData];
     [self addMenuView];
     [self addScrollView];
+    if (self.selectIndex != 0) {
+        [self.menuView selectItemAtIndex:self.selectIndex];
+    }
 }
 - (id)dequeueReusableCellWithIdentifier:(NSString *)identifier{
     __block WKPageCell *reuseCell;

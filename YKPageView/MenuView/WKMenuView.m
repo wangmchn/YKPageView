@@ -8,6 +8,7 @@
 
 #import "WKMenuView.h"
 #import "WKMenuItem.h"
+#import "WMProgressView.h"
 #define kMaskWidth 20
 #define kItemWidth 60
 #define kMargin    0
@@ -22,10 +23,25 @@
 @property (nonatomic, weak) UIButton *searchButton;
 @property (nonatomic, strong) WKMenuItem *selItem;
 @property (nonatomic, strong) UIColor *bgColor;
+@property (nonatomic, strong) NSMutableArray *frames;
+@property (nonatomic, weak) WMProgressView *progressView;
 @end
-
+static int     const kTagGap = 6250;
+static CGFloat const WMProgressHeight = 2.0;
 @implementation WKMenuView
 #pragma mark - Public Methods
+- (void)selectItemAtIndex:(NSInteger)index{
+    NSInteger tag = index + kTagGap;
+    WKMenuItem *item = (WKMenuItem *)[self viewWithTag:tag];
+    [self.selItem deselectedItemWithoutAnimation];
+    self.selItem = item;
+    [self.selItem selectedItemWithoutAnimation];
+    self.progressView.progress = index;
+    if ([self.delegate respondsToSelector:@selector(menuView:didSelesctedIndex:)]) {
+        [self.delegate menuView:self didSelesctedIndex:index];
+    }
+    [self refreshContenOffset];
+}
 - (instancetype)initWithFrame:(CGRect)frame buttonItems:(NSArray *)items backgroundColor:(UIColor *)bgColor norSize:(CGFloat)norSize selSize:(CGFloat)selSize norColor:(UIColor *)norColor selColor:(UIColor *)selColor{
     if (self = [super initWithFrame:frame]) {
         self.items = items;
@@ -38,13 +54,15 @@
         _selSize = selSize;
         _norColor = norColor;
         _selColor = selColor;
-//        [self addMask];
     }
     return self;
 }
 - (void)slideMenuAtProgress:(CGFloat)progress{
-    NSInteger tag = (NSInteger)progress + 1;
-    CGFloat rate = progress - tag + 1;
+    if (self.style == WKMenuViewStyleLine) {
+        self.progressView.progress = progress;
+    }
+    NSInteger tag = (NSInteger)progress + kTagGap;
+    CGFloat rate = progress - tag + kTagGap;
     WKMenuItem *currentItem = (WKMenuItem *)[self viewWithTag:tag];
     WKMenuItem *nextItem = (WKMenuItem *)[self viewWithTag:tag+1];
     if (rate == 0.0) {
@@ -57,9 +75,29 @@
     nextItem.rate = rate;
 }
 #pragma mark - Private Methods
+- (NSMutableArray *)frames{
+    if (_frames == nil) {
+        _frames = [NSMutableArray array];
+    }
+    return _frames;
+}
 - (void)willMoveToSuperview:(UIView *)newSuperview{
     [self addScrollView];
     [self addItems];
+    if (self.style == WKMenuViewStyleLine) {
+        [self addProgress];
+    }
+}
+- (void)addProgress{
+    WMProgressView *pView = [[WMProgressView alloc] initWithFrame:CGRectMake(0, self.frame.size.height-WMProgressHeight, self.scrollView.contentSize.width, WMProgressHeight)];
+    pView.itemFrames = self.frames;
+    if (!_selColor) {
+        _selColor = [UIColor colorWithRed:168.0/255.0 green:20.0/255.0 blue:4/255.0 alpha:1];
+    }
+    pView.color = _selColor.CGColor;
+    pView.backgroundColor = [UIColor clearColor];
+    self.progressView = pView;
+    [self.scrollView addSubview:pView];
 }
 - (void)refreshContenOffset{
     // 让选中的item位于中间
@@ -104,7 +142,9 @@
         CGRect frame = CGRectMake(contentWidth, 0, itemW, self.frame.size.height);
         contentWidth += itemW;
         WKMenuItem *item = [[WKMenuItem alloc] initWithFrame:frame];
-        item.tag = (i+1); // view的默认tag为0，因而要避免设置tag为，紧记!!
+        // 记录frame
+        [self.frames addObject:[NSValue valueWithCGRect:frame]];
+        item.tag = (i+kTagGap); // view的默认tag为0，因而要避免设置tag为，紧记!!
         item.title = self.items[i];
         item.delegate = self;
         item.backgroundColor = self.bgColor;
@@ -146,7 +186,7 @@
     if (self.selItem == menuItem) return;
     
     if ([self.delegate respondsToSelector:@selector(menuView:didSelesctedIndex:)]) {
-        [self.delegate menuView:self didSelesctedIndex:menuItem.tag-1];
+        [self.delegate menuView:self didSelesctedIndex:menuItem.tag-kTagGap];
     }
     
     menuItem.selected = YES;

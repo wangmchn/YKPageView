@@ -31,6 +31,8 @@
     WKPageView *pageView = [[WKPageView alloc] initWithFrame:self.view.bounds];
     pageView.dataSource = self;
     pageView.delegate = self;
+    pageView.selectIndex = 3;
+    pageView.menuViewStyle = WKMenuViewStyleLine;
     pageView.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:pageView];
     self.pageView = pageView;
@@ -51,9 +53,9 @@
 }
 #pragma mark Page view delegate
 // 若不实现，默认红黑，为保证字体颜色渐变，请尽量选用RGBA来创建UIColor
-//- (UIColor *)titleColorOfMenuItemInPageView:(WKPageView *)pageView withState:(WKMenuItemTitleColorState)state{
-//    return [UIColor randomColor];
-//}
+- (UIColor *)titleColorOfMenuItemInPageView:(WKPageView *)pageView withState:(WKMenuItemTitleColorState)state{
+    return [UIColor randomColor];
+}
 // 若不实现,默认为30
 - (CGFloat)pageView:(WKPageView *)pageView heightForMenuView:(WKMenuView *)menuView{
     return 30;

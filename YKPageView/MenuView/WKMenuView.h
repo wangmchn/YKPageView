@@ -13,7 +13,10 @@ typedef enum{
     WKMenuSlideToNextItem,
     WKMenuSlideToFrontItem
 } WKMenuSlideType;
-
+typedef enum{
+    WKMenuViewStyleDefault,
+    WKMenuViewStyleLine
+} WKMenuViewStyle;
 @protocol WKMenuViewDelegate <NSObject>
 @optional
 - (void)menuView:(WKMenuView *)menu didSelesctedIndex:(NSInteger)index;
@@ -22,9 +25,12 @@ typedef enum{
 
 @interface WKMenuView : UIView
 
+@property (nonatomic, assign) WKMenuViewStyle style;
 @property (nonatomic, strong) NSArray *items;
 @property (nonatomic, weak) id<WKMenuViewDelegate> delegate;
 
 - (instancetype)initWithFrame:(CGRect)frame buttonItems:(NSArray *)items backgroundColor:(UIColor *)bgColor norSize:(CGFloat)norSize selSize:(CGFloat)selSize norColor:(UIColor *)norColor selColor:(UIColor *)selColor;
 - (void)slideMenuAtProgress:(CGFloat)progress;
+
+- (void)selectItemAtIndex:(NSInteger)index;
 @end

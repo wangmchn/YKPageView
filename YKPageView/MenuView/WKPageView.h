@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "WKPageCell.h"
-@class WKMenuView;
+#import "WKMenuView.h"
 @class WKPageView;
 typedef enum{
     WKMenuItemTitleSizeStateNormal,
@@ -104,9 +104,12 @@ typedef enum{
  *  点击菜单栏item时翻页的动画,默认为YES
  */
 @property (nonatomic, assign) BOOL toAnimate;
+// 默认为无下划线
+// menu view's style, now has tow different style,'Line','default'
+@property (nonatomic, assign) WKMenuViewStyle menuViewStyle;
 @property (nonatomic, weak) id<WKPageViewDataSource> dataSource;
 @property (nonatomic, weak) id<WKPageViewDelegate> delegate;
-
+@property (nonatomic, assign) int selectIndex;
 /**
  *  刷新数据
  */

@@ -19,6 +19,7 @@
 		4D0FDBA01B1A02BD00F02AE3 /* WKPageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D0FDB9B1B1A02BD00F02AE3 /* WKPageCell.m */; };
 		4D0FDBA11B1A02BD00F02AE3 /* WKPageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D0FDB9D1B1A02BD00F02AE3 /* WKPageView.m */; };
 		4D0FDBA51B1A02E300F02AE3 /* UIColor+Random.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D0FDBA41B1A02E300F02AE3 /* UIColor+Random.m */; };
+		4D9C97771B3BE0C80056E474 /* WMProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D9C97761B3BE0C80056E474 /* WMProgressView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,8 @@
 		4D0FDB9D1B1A02BD00F02AE3 /* WKPageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKPageView.m; sourceTree = "<group>"; };
 		4D0FDBA31B1A02E300F02AE3 /* UIColor+Random.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Random.h"; sourceTree = "<group>"; };
 		4D0FDBA41B1A02E300F02AE3 /* UIColor+Random.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Random.m"; sourceTree = "<group>"; };
+		4D9C97751B3BE0C80056E474 /* WMProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMProgressView.h; sourceTree = "<group>"; };
+		4D9C97761B3BE0C80056E474 /* WMProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMProgressView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +150,8 @@
 				4D0FDB9B1B1A02BD00F02AE3 /* WKPageCell.m */,
 				4D0FDB9C1B1A02BD00F02AE3 /* WKPageView.h */,
 				4D0FDB9D1B1A02BD00F02AE3 /* WKPageView.m */,
+				4D9C97751B3BE0C80056E474 /* WMProgressView.h */,
+				4D9C97761B3BE0C80056E474 /* WMProgressView.m */,
 			);
 			path = MenuView;
 			sourceTree = "<group>";
@@ -263,6 +268,7 @@
 				4D0FDB781B1A029D00F02AE3 /* ViewController.m in Sources */,
 				4D0FDB9E1B1A02BD00F02AE3 /* WKMenuItem.m in Sources */,
 				4D0FDBA01B1A02BD00F02AE3 /* WKPageCell.m in Sources */,
+				4D9C97771B3BE0C80056E474 /* WMProgressView.m in Sources */,
 				4D0FDB751B1A029D00F02AE3 /* AppDelegate.m in Sources */,
 				4D0FDBA51B1A02E300F02AE3 /* UIColor+Random.m in Sources */,
 				4D0FDB9F1B1A02BD00F02AE3 /* WKMenuView.m in Sources */,
@@ -464,6 +470,7 @@
 				4D0FDB911B1A029D00F02AE3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4D0FDB921B1A029D00F02AE3 /* Build configuration list for PBXNativeTarget "YKPageViewTests" */ = {
 			isa = XCConfigurationList;
@@ -472,6 +479,7 @@
 				4D0FDB941B1A029D00F02AE3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

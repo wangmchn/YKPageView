@@ -74,8 +74,5 @@ https://github.com/wangmchn/WMPageController
 效果图如下，背景，字体颜色及大小都是可定制的：<br>
 ![Example](https://github.com/wangmchn/YKPageView/blob/master/Example.gif)
 
-你可以像网易新闻这样：<br>
-![EastNet](https://github.com/wangmchn/YKPageView/blob/master/eastnet.gif)
-
 你当然也可以就将它这么放到你的项目中：<br>
 ![CosChat](https://github.com/wangmchn/YKPageView/blob/master/CosChat.gif)

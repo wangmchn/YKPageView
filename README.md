@@ -15,10 +15,12 @@ https://github.com/wangmchn/WMPageController
 * 实现相应的 `delegate` 和 `dataSource` 方法即可, 具体可参见 `Demo`;
 
 ## Final
-	有什么问题欢迎联系我，有什么错误或者值得改进的地方希望各位前辈多多指教:)
+`有什么问题欢迎联系我，有什么错误或者值得改进的地方希望各位前辈多多指教:)`
 
-效果图如下，背景，字体颜色及大小都是可定制的：<br>
+`效果图如下:`
+<br>
 <img height="350" src="https://github.com/wangmchn/YKPageView/blob/master/YKPageView/ScreenShot/ScreenShot.gif" />
 
-你当然也可以就将它这么放到你的项目中：<br>
+`你当然也可以就将它这么放到你的项目中:`
+<br>
 <img height="350" src="https://github.com/wangmchn/YKPageView/blob/master/YKPageView/ScreenShot/CosChat.gif" />

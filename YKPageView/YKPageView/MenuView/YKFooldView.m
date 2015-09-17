@@ -1,0 +1,111 @@
+//
+//  YKFooldView.m
+//  YKPageView
+//
+//  Created by Mark on 15/7/13.
+//  Copyright (c) 2015年 yq. All rights reserved.
+//
+
+#import "YKFooldView.h"
+
+@implementation YKFooldView {
+    CGFloat YKFooldMargin;
+    CGFloat YKFooldRadius;
+    CGFloat YKFooldLength;
+    CGFloat YKFooldHeight;
+    CGFloat gap;
+    CGFloat step;
+    CGFloat kTime;
+    int     sign;
+    
+    __weak CADisplayLink *_link;
+}
+
+@synthesize progress = _progress;
+
+- (instancetype)initWithFrame:(CGRect)frame {
+    if (self = [super initWithFrame:frame]) {
+        YKFooldHeight = frame.size.height;
+        YKFooldMargin = YKFooldHeight * 0.15;
+        YKFooldRadius = (YKFooldHeight - YKFooldMargin * 2) / 2;
+        YKFooldLength = frame.size.width  - YKFooldRadius * 2;
+        kTime = 20.0;
+    }
+    return self;
+}
+
+- (void)setProgressWithOutAnimate:(CGFloat)progress {
+    if (self.progress == progress) return;
+    _progress = progress;
+    [self setNeedsDisplay];
+}
+
+- (void)setProgress:(CGFloat)progress {
+    if (self.progress == progress) return;
+    if (fabs(progress - _progress) >= 0.9 && fabs(progress - _progress) < 1.5) {
+        gap  = fabs(self.progress - progress);
+        sign = self.progress > progress ? - 1 : 1;
+        if (self.itemFrames.count <= 3) {
+            kTime = 15.0;
+        }
+        step = gap / kTime;
+        CADisplayLink *link = [CADisplayLink displayLinkWithTarget:self selector:@selector(progressChanged)];
+        [link addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSRunLoopCommonModes];
+        _link = link;
+        return;
+    }
+    _progress = progress;
+    [self setNeedsDisplay];
+}
+
+- (void)progressChanged {
+    if (gap >= 0.0) {
+        gap -= step;
+        if (gap < 0.0) {
+            self.progress = (int)(self.progress + 0.5);
+            return;
+        }
+        self.progress += sign * step;
+    } else {
+        self.progress = (int)(self.progress + 0.5);
+        [_link invalidate];
+        _link = nil;
+    }
+}
+
+- (void)drawRect:(CGRect)rect {
+    // Drawing code
+    int currentIndex = (int)self.progress;
+    CGFloat rate = self.progress - currentIndex;
+    int nextIndex = currentIndex + 1 >= self.itemFrames.count ?: currentIndex + 1;
+
+    // 当前item的各数值
+    CGRect  currentFrame = [self.itemFrames[currentIndex] CGRectValue];
+    CGFloat currentWidth = currentFrame.size.width;
+    CGFloat currentX = currentFrame.origin.x;
+    // 下一个item的各数值
+    CGFloat nextWidth = [self.itemFrames[nextIndex] CGRectValue].size.width;
+    CGFloat nextX = [self.itemFrames[nextIndex] CGRectValue].origin.x;
+    // 计算点
+    CGFloat startX = currentX + (nextX - currentX) * rate;
+    CGFloat endX = startX + currentWidth + (nextWidth - currentWidth)*rate;
+    // 绘制
+    CGContextRef ctx = UIGraphicsGetCurrentContext();
+    CGContextTranslateCTM(ctx, 0.0f, YKFooldHeight);
+    CGContextScaleCTM(ctx, 1.0f, -1.0f);
+    CGContextAddArc(ctx, startX+YKFooldRadius, YKFooldHeight / 2.0, YKFooldRadius, M_PI_2, M_PI_2 * 3, 0);
+    CGContextAddLineToPoint(ctx, endX-YKFooldRadius, YKFooldMargin);
+    CGContextAddArc(ctx, endX-YKFooldRadius, YKFooldHeight / 2.0, YKFooldRadius, -M_PI_2, M_PI_2, 0);
+    CGContextClosePath(ctx);
+    
+    if (self.hollow) {
+        CGContextSetStrokeColorWithColor(ctx, self.color);
+        CGContextStrokePath(ctx);
+        return;
+    }
+    CGContextClosePath(ctx);
+    CGContextSetFillColorWithColor(ctx, self.color);
+    CGContextFillPath(ctx);
+}
+
+@end

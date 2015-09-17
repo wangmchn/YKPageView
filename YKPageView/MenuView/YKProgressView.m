@@ -8,7 +8,7 @@
 
 #import "YKProgressView.h"
 @implementation YKProgressView {
-    int sign;
+    int     sign;
     CGFloat gap;
     CGFloat step;
     __weak CADisplayLink *_link;

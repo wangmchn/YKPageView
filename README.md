@@ -15,7 +15,7 @@ https://github.com/wangmchn/WMPageController
 * 实现相应的 `delegate` 和 `dataSource` 方法即可, 具体可参见 `Demo`;
 
 ## Final
-有什么问题欢迎联系我，有什么错误或者值得改进的地方希望各位前辈多多指教:)
+有什么问题欢迎联系我，有什么错误或者值得改进的地方希望各位前辈多多指教.
 
 `效果图如下:`
 <br>

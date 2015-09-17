@@ -11,7 +11,7 @@ https://github.com/wangmchn/WMPageController
     
 
 ## How to use
-* import `YKPageView`, 使用方法类似 `UITableView`
+* `#import "YKPageView"`, 使用方法类似 `UITableView`
 * 实现相应的 `delegate` 和 `dataSource` 方法即可, 具体可参见 `Demo`;
 
 ## Final

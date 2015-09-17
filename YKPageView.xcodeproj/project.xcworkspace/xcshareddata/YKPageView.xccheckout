@@ -7,18 +7,18 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>F46541E8-0F66-4CDB-9F44-CCF334E23FAE</string>
 	<key>IDESourceControlProjectName</key>
-	<string>YKPageView</string>
+	<string>project</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>2DE65555B6115C7F6AC0A2C54AF173771E6780B4</key>
 		<string>https://github.com/wangmchn/YKPageView.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>YKPageView.xcodeproj</string>
+	<string>YKPageView.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>2DE65555B6115C7F6AC0A2C54AF173771E6780B4</key>
-		<string>../../..</string>
+		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/wangmchn/YKPageView.git</string>
@@ -28,14 +28,6 @@
 	<string>2DE65555B6115C7F6AC0A2C54AF173771E6780B4</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
-		<dict>
-			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
-			<string>public.vcs.git</string>
-			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>2DE65555B6115C7F6AC0A2C54AF173771E6780B4</string>
-			<key>IDESourceControlWCCName</key>
-			<string></string>
-		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>

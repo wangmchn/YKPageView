@@ -8,14 +8,15 @@
 
 #import "YKPageView.h"
 #import "YKMenuView.h"
-#define kSelectedSize 18
-#define kNormolSize   15
-#define kDefaultMH 30
-#define kDeflautItemWidth 60
+
+static CGFloat const YKTitleSizeSelected     = 18.0f;
+static CGFloat const YKTitleSizeNormol       = 15.0f;
+static CGFloat const YKMenuViewDefaultHeight = 30.0f;
+static CGFloat const YKMenuItemDefaultWidth  = 60.0f;
 
 @interface YKPageView () <UIScrollViewDelegate, YKMenuViewDelegate>{
-    BOOL animate;
-    BOOL setted;
+    BOOL _animate;
+    BOOL _setted;
 }
 @property (nonatomic, weak) UIScrollView *scrollView;
 @property (nonatomic, strong) NSMutableSet *reusePool;
@@ -48,12 +49,12 @@
     return _reusePool;
 }
 
-- (CGFloat)menuViewHeight{
+- (CGFloat)menuViewHeight {
     if (!_menuViewHeight) {
         if ([self.delegate respondsToSelector:@selector(pageView:heightForMenuView:)]) {
             _menuViewHeight = [self.delegate pageView:self heightForMenuView:self.menuView];
         } else {
-            _menuViewHeight = kDefaultMH;
+            _menuViewHeight = YKMenuViewDefaultHeight;
         }
     }
     return _menuViewHeight;
@@ -65,7 +66,7 @@
 }
 
 // 添加菜单栏
-- (void)addMenuView{
+- (void)addMenuView {
     CGFloat width = self.frame.size.width;
     CGFloat height = self.menuViewHeight;
     NSArray *items = [self.dataSource menuItemsForMenuViewInPageView:self];
@@ -83,11 +84,12 @@
         norSize = [self.delegate titleSizeOfMenuItemInPageView:self withState:YKMenuItemTitleSizeStateNormal];
         selSize = [self.delegate titleSizeOfMenuItemInPageView:self withState:YKMenuItemTitleSizeStateSelected];
     } else {
-        norSize = kNormolSize;
-        selSize = kSelectedSize;
+        norSize = YKTitleSizeNormol;
+        selSize = YKTitleSizeSelected;
     }
     YKMenuView *menuView = [[YKMenuView alloc] initWithFrame:frame buttonItems:items backgroundColor:color norSize:norSize selSize:selSize norColor:norColor selColor:selColor];
     menuView.delegate = self;
+    self.menuView.lineColor = self.progressColor;
     switch (self.menuViewStyle) {
         case YKMenuViewStyleLine:
             menuView.style = YKMenuViewStyleLine;
@@ -106,7 +108,7 @@
 }
 
 // 添加主滚动视图
-- (void)addScrollView{
+- (void)addScrollView {
     CGFloat x = 0;
     CGFloat y = self.menuViewHeight;
     CGFloat width = self.frame.size.width;
@@ -138,14 +140,14 @@
     self.scrollView = scrollView;
 }
 
-- (BOOL)isInScreen:(CGRect)frame{
+- (BOOL)isInScreen:(CGRect)frame {
     CGFloat x = frame.origin.x;
     CGFloat ScreenWidth = self.scrollView.frame.size.width;
     
     CGFloat contentOffsetX = self.scrollView.contentOffset.x;
     if (CGRectGetMaxX(frame) > contentOffsetX && x-contentOffsetX < ScreenWidth) {
         return YES;
-    }else{
+    } else {
         return NO;
     }
 }
@@ -193,7 +195,7 @@
 }
 
 #pragma mark - Public Methods
-- (void)setSelectIndex:(int)selectIndex {
+- (void)setSelectIndex:(NSInteger)selectIndex {
     _selectIndex = selectIndex;
     if (self.menuView) {
         [self.menuView selectItemAtIndex:selectIndex];
@@ -202,7 +204,7 @@
 
 - (void)setToAnimate:(BOOL)toAnimate {
     _toAnimate = toAnimate;
-    setted = YES;
+    _setted = YES;
 }
 
 - (void)reloadData {
@@ -230,23 +232,23 @@
 
 #pragma mark - MenuView delegate
 - (void)menuView:(YKMenuView *)menu didSelesctedIndex:(NSInteger)index currentIndex:(NSInteger)currentIndex {
-    animate = NO;
+    _animate = NO;
     CGPoint targetP = CGPointMake(self.scrollView.frame.size.width*index, 0);
-    [self.scrollView setContentOffset:targetP animated:setted?self.toAnimate:YES];
+    [self.scrollView setContentOffset:targetP animated:(_setted ? self.toAnimate : YES)];
 }
 
 - (CGFloat)menuView:(YKMenuView *)menu widthForItemAtIndex:(NSInteger)index {
     if ([self.delegate respondsToSelector:@selector(pageView:widthForMenuItemAtIndex:)]) {
         return [self.delegate pageView:self widthForMenuItemAtIndex:index];
     } else {
-        return kDeflautItemWidth;
+        return YKMenuItemDefaultWidth;
     }
 }
 
 #pragma mark - ScrollView delegate
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     [self layoutItems];
-    if (animate) {
+    if (_animate) {
         CGFloat width = scrollView.frame.size.width;
         CGFloat contentOffsetX = scrollView.contentOffset.x;
         
@@ -256,7 +258,7 @@
 }
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
-    animate = YES;
+    _animate = YES;
 }
 
 @end

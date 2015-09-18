@@ -81,7 +81,7 @@ typedef NS_ENUM(NSInteger, YKMenuItemTitleColorState) {
  *  设置菜单栏标题字体大小 (大于零)
  *
  *  @param pageView 当前翻页视图
- *  @param state    分为YKMenuItemTitleSizeStateNormal(未选中)/YKMenuItemTitleSizeStateSelected(选中)
+ *  @param state    分为 YKMenuItemTitleSizeStateNormal (未选中) / YKMenuItemTitleSizeStateSelected (选中)
  *
  *  @return 标题字体大小
  */
@@ -91,7 +91,7 @@ typedef NS_ENUM(NSInteger, YKMenuItemTitleColorState) {
  *  设置菜单栏内部item的宽度，默认宽度为60
  *
  *  @param pageView 当前翻页视图
- *  @param index    YKMenuItem的序号，可根据序号定制
+ *  @param index    YKMenuItem 的序号，可根据序号定制
  *
  *  @return item的宽度
  */
@@ -104,12 +104,12 @@ typedef NS_ENUM(NSInteger, YKMenuItemTitleColorState) {
 /** 点击菜单栏item时翻页的动画,默认为 YES */
 @property (nonatomic, assign) BOOL toAnimate;
 
-// 默认为无下划线
-// menu view's style, now has tow different style,'Line','default'
+/** 上方导航栏的样式 */
 @property (nonatomic, assign) YKMenuViewStyle menuViewStyle;
+@property (nonatomic, assign) NSInteger selectIndex;
+@property (nonatomic, strong) UIColor *progressColor;
 @property (nonatomic, weak) id<YKPageViewDataSource> dataSource;
 @property (nonatomic, weak) id<YKPageViewDelegate> delegate;
-@property (nonatomic, assign) int selectIndex;
 
 /** 刷新数据 */
 - (void)reloadData;

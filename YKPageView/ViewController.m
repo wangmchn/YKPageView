@@ -39,7 +39,6 @@
     pageView.delegate = self;
     pageView.selectIndex = 3;
     pageView.menuViewStyle = YKMenuViewStyleLine;
-    pageView.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:pageView];
     self.pageView = pageView;
 }
